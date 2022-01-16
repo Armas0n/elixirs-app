@@ -50,7 +50,16 @@ function Home() {
               onClickSortType={onSelectSortType}
           />
         </div>
-        <h2 className="content__title">Все эликсиры</h2>
+        <h2 className="content__title">{
+          {
+            0: 'Реагенты',
+            1: 'Эликсиры',
+            2: 'Масла',
+            3: 'Отвары',
+            4: 'Особое'
+          }[category] ?? 'Все товары'
+        }
+        </h2>
         <div className="content__items">
           {isLoaded
               ? items.map((elixirObj) => (

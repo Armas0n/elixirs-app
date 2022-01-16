@@ -12,6 +12,12 @@
 
   ul {
     display: flex;
+    
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      row-gap: 10px;
+    }
 
     li {
       background-color: $grey;
