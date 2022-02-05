@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .categories {
   flex: 1;
@@ -12,7 +12,7 @@
 
   ul {
     display: flex;
-    
+
     @media (max-width: 768px) {
       flex-wrap: wrap;
       justify-content: space-between;

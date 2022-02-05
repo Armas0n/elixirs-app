@@ -1,15 +1,17 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import logoSvg from '../assets/img/potion_icon.png';
+
+import { useTypedSelector } from '../redux/reduxHooks';
 import Button from './Button';
 
 function Header() {
-  const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
+  const { totalPrice, totalCount } = useTypedSelector(({ cart }) => cart);
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="container">
         <Link to="/">
           <div className="header__logo">
@@ -25,7 +27,7 @@ function Header() {
           <Link to="/cart">
             <Button className="button--cart">
               <span>{totalPrice} кр.</span>
-              <div className="button__delimiter"></div>
+              <div className="button__delimiter" />
               <svg
                 width="18"
                 height="18"
@@ -59,7 +61,7 @@ function Header() {
           </Link>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

@@ -1,8 +1,9 @@
-@import '../variables';
+@import "../variables";
 
 .sort {
   margin-left: 20px;
   position: relative;
+
   &__label {
     display: flex;
     align-items: center;
@@ -42,6 +43,7 @@
 
     ul {
       overflow: hidden;
+
       li {
         padding: 12px 20px;
         cursor: pointer;

@@ -1,9 +1,12 @@
-const initialState = {
+import { AnyAction } from 'redux';
+import { ElixirsState } from '../../typings/types';
+
+const initialState: ElixirsState = {
   items: [],
   isLoaded: false,
 };
 
-const elixirs = (state = initialState, action) => {
+const elixirs = (state = initialState, action: AnyAction): ElixirsState => {
   switch (action.type) {
     case 'SET_ELIXIRS':
       return {

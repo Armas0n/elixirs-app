@@ -1,7 +1,20 @@
 import React from 'react';
 import Button from './Button';
 
-const CartItem = ({ id, name, size, totalPrice, totalCount, onRemove, onMinus, onPlus, image }) => {
+interface CartItemProps {
+  id: number;
+  name: string;
+  size: number | string;
+  totalPrice: number | string;
+  totalCount: number | string;
+  onRemove: (id: number) => void;
+  onMinus: (id: number) => void;
+  onPlus: (id: number) => void;
+  image: string;
+}
+
+function CartItem({ id, name, size, totalPrice, totalCount, onRemove, onMinus, onPlus, image }: CartItemProps) {
+
   const handleRemoveClick = () => {
     onRemove(id);
   };
@@ -12,6 +25,14 @@ const CartItem = ({ id, name, size, totalPrice, totalCount, onRemove, onMinus, o
 
   const handleMinusItem = () => {
     onMinus(id);
+  };
+
+  const handleItemFromKeyboard = (event: React.KeyboardEvent) => {
+    if (event.key === 'arrowLeft') {
+      onMinus(id);
+    } else if (event.key === 'arrowRight') {
+      onPlus(id);
+    }
   };
 
   return (
@@ -31,7 +52,10 @@ const CartItem = ({ id, name, size, totalPrice, totalCount, onRemove, onMinus, o
       </div>
       <div className="cart__item-count">
         <div
+          role="button"
+          tabIndex={0}
           onClick={handleMinusItem}
+          onKeyPress={handleItemFromKeyboard}
           className="button button--outline button--circle cart__item-count-minus">
           <svg
             width="10"
@@ -51,7 +75,10 @@ const CartItem = ({ id, name, size, totalPrice, totalCount, onRemove, onMinus, o
         </div>
         <b>{totalCount}</b>
         <div
+          role="button"
+          tabIndex={0}
           onClick={handlePlusItem}
+          onKeyPress={handleItemFromKeyboard}
           className="button button--outline button--circle cart__item-count-plus">
           <svg
             width="10"
@@ -94,6 +121,6 @@ const CartItem = ({ id, name, size, totalPrice, totalCount, onRemove, onMinus, o
       </div>
     </div>
   );
-};
+}
 
 export default CartItem;

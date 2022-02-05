@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb", "prettier", "airbnb/hooks", "airbnb-typescript"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules":  {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/require-default-props": 0,
+    "@typescript-eslint/default-param-last": 0
+  }
+}

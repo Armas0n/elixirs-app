@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
-
-import filters from './filters';
-import elixirs from './elixirs';
 import cart from './cart';
+import elixirs from './elixirs';
+import filters from './filters';
 
 const rootReducer = combineReducers({
   filters,
